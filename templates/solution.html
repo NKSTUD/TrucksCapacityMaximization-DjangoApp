@@ -1,0 +1,36 @@
+<h1 id="status">
+    Solution : <span style="color: {% if status == 'Infeasible' %}red{% endif %}"> {{ status }}</span>
+</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Trucks\Product</th>
+        {% for product in products %}
+            <th>{{ product }}</th>
+        {% endfor %}
+        <th>Fill Rate %</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for elements in table %}
+        <tr>
+            {% for value in elements %}
+                <td{% if forloop.last %}
+                    style="background-color: {% if value >= 100 %}
+                        red
+                    {% elif value >= 1 and value <= 100 %}
+                        #13e7d1{% else %}
+                        #b7b7b7{% endif %}; color:white;"
+                {% endif %}>
+                    {% if forloop.last %}
+                        {{ value }} %
+                    {% else %}
+                        {{ value }}
+                    {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

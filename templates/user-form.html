@@ -1,0 +1,32 @@
+<div>
+    {% for element in  number_of_products %}
+        <label class="group-input">
+            <input class name="product_{{ element|add:1 }}" type="text" value="Product_{{ element|add:1 }}">
+            <input name="volume_{{ element|add:1 }}" type="text" placeholder="volume_{{ element|add:1 }}"
+                   hx-post="{% url 'solution' %}" hx-trigger="keyup changed delay:500ms" hx-target="#result">
+
+            <input name="demand_product_{{ element|add:1 }}" type="text"
+                   placeholder="demand_product_{{ element|add:1 }}"
+                   hx-post="{% url 'solution' %}" hx-trigger="keyup changed delay:500ms" hx-target="#result">
+        </label>
+        <br>
+    {% endfor %}
+</div>
+
+<div>
+    {% for element in  number_of_trucks %}
+        <label class="group-input" >
+            <input name="Truck_{{ element|add:1 }}" type="text" value="Truck_{{ element|add:1 }}"
+                   hx-post="{% url 'solution' %}" hx-trigger="keyup changed delay:500ms" hx-target="#result"
+            >
+            <input name="capacity_{{ element|add:1 }}" type="text"
+                   placeholder="capacity_{{ element|add:1 }}"
+                   hx-post="{% url 'solution' %}" hx-trigger="keyup changed delay:500ms" hx-target="#result">
+            <input name="Number_of_Truck_{{ element|add:1 }}" type="text"
+                   placeholder="Number_of_Truck_{{ element|add:1 }}"
+                   hx-post="{% url 'solution' %}" hx-trigger="keyup changed delay:500ms" hx-target="#result"
+            >
+        </label>
+        <br>
+    {% endfor %}
+</div>

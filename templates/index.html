@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transportation problem</title>
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<h1>Transportation problem</h1>
+<form id="initial__form" action="{% url 'home' %}" method="POST">
+    {% csrf_token %}
+    <label for="number_of_products">Number of products:</label>
+    <br>
+    <input hx-post="{% url 'home' %}" hx-trigger="keyup changed delay:500ms" hx-target="#user-form"
+           id="number_of_products" type="text" name="number_of_products">
+    <label for="number_of_trucks">Number of truck types:</label>
+    <input
+            hx-post="{% url 'home' %}" hx-trigger="keyup changed delay:500ms" hx-target="#user-form"
+            id="number_of_trucks" type="text" name="number_of_trucks"
+    >
+</form>
+
+
+<form id="user-form">
+
+</form>
+
+<div id="result">
+
+</div>
+
+</body>
+</html>
