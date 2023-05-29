@@ -4,7 +4,7 @@ This Django application implements a solution for maximizing the filling rate of
 
 ## Code Overview
 
-The code consists of Django views that handle HTTP requests and responses. The key component is the `views.py` file, which contains the views and utility functions to extract data, define decision variables, and solve the optimization problem.
+The code consists of Django views that handle HTTP requests and responses. The key component is the [`views.py`](views.py)file, which contains the views and utility functions to extract data, define decision variables, and solve the optimization problem.
 
 ## Filling Rate Calculation
 
