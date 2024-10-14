@@ -1,35 +1,20 @@
-# Trucks Filling Rate Maximization Django Application
+# Trucks Filling Rate Maximization - Django Application
 
-This Django application implements a solution for maximizing the filling rate of trucks during transportation. The objective is to efficiently allocate products to trucks in order to utilize the available truck capacity effectively.
+This Django application optimizes the filling rate of trucks during transportation, ensuring efficient product allocation to maximize truck capacity usage.
 
 ## Code Overview
 
-The code consists of Django views that handle HTTP requests and responses. The key component is the [`views.py`](https://github.com/NKSTUD/Trucks-filling-rate-maximization-simple-django-web-app/blob/main/minimizer/views.py)file, which contains the views and utility functions to extract data, define decision variables, and solve the optimization problem.
+The core functionality lies in the [`views.py`](https://github.com/NKSTUD/Trucks-filling-rate-maximization-simple-django-web-app/blob/main/minimizer/views.py) file, which includes views and utility functions for data extraction, defining decision variables, and solving the optimization problem.
 
 ## Filling Rate Calculation
 
-To calculate the filling rate for each truck, the application utilizes the `create_solution_table()` function defined in `views.py`. This function performs the following steps:
-
-1. Initializes an empty `table` to store the truck inventory information.
-2. For each `truck` in `trucks_per_type`:
-   - Creates a `truck_inventory` list to store the inventory information of the current truck.
-   - Initializes the `transported_volume` variable to keep track of the total volume of products transported by the truck.
-   - For each `product` in `products`:
-     - Appends the number of units of the current `product` carried by the `truck` to `truck_inventory`.
-     - Updates the `transported_volume` by multiplying the number of units of the current `product` by its volume and adding it to the existing `transported_volume`.
-   - Calculates the filling rate for the current `truck` by dividing the `transported_volume` by the capacity of the truck (`trucks_capacity[truck_type]`).
-   - Appends the calculated filling rate to `truck_inventory`.
-   - Appends the `truck_inventory` to the `table`.
-
-The resulting `table` contains the truck inventory information sorted in descending order of filling rate.
+The filling rate is calculated using the `create_solution_table()` function in `views.py`, which determines the transported volume and filling rate for each truck and stores the data in a `table`, sorted by filling rate in descending order.
 
 ## Usage
 
-To use this Django application, follow these steps:
-
-1. Set up the necessary environment with Python and Django.
-
-2. Ensure that you have the required dependencies installed. Run the following command to install them:
+1. Set up the environment with Python and Django.
+2. Install the required dependencies:
 
    ```shell
    pip install -r requirements.txt
+   ```
